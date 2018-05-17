@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+ {% load static %}
+<link rel="stylesheet" href="{% static 'css/table.css' %}" />
+</head>
+<body>
+<div class="table-title">
+<h3>Hotel List Table</h3>
+</div>
+<div style="text-align:center;">
+<table id="customers">
+
+<tr>
+<th class="text-left">Hotel Name</th>
+<th class="text-left">Adress</th>
+<th class="text-left">Internet</th>
+<th class="text-left">Contact</th>
+<th class="text-left">Existing Software</th>
+<th class="text-left">Waiting</th>
+<th class="text-left">Interested</th>
+</tr>
+{% for hotel in hotels %}
+  <tr>
+  <td class="text-left">{{ hotel.hotel_name }}</td>
+  <td class="text-left">{{ hotel.address }}</td>
+  <td class="text-left">{{ hotel.internet }}</td>
+  <td class="text-left">{{ hotel.phone }}</td>
+  <td class="text-left">{{ hotel.existing_software}}</td>
+  <td class="text-left">{{ hotel.waiting }}</td>
+  <td class="text-left">{{ hotel.demo }}</td>
+  
+  </tr>
+{% endfor %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+      {% endfor %}
+    {% endif %}
+</tbody>
+</table>
+</div>
+        <a href="{% url 'New Enquiry' %}" class="btn btn-default">New Hotel</a>
+</body>
