@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
 <head>
  {% load static %}
 <link rel="stylesheet" href="{% static 'css/table.css' %}" />
@@ -19,7 +24,7 @@
 <th class="text-left">Waiting</th>
 <th class="text-left">Interested</th>
 </tr>
-{% for hotel in hotels %}
+{% for hotel in object_list %}
   <tr>
   <td class="text-left">{{ hotel.hotel_name }}</td>
   <td class="text-left">{{ hotel.address }}</td>
@@ -41,3 +46,4 @@
 </div>
         <a href="{% url 'New Enquiry' %}" class="btn btn-default">New Hotel</a>
 </body>
+{% endblock %}

@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.db import models
 from django.utils import timezone
-
+from django.urls import reverse
 
 # Create your models here.
 class Enquiry(models.Model):
